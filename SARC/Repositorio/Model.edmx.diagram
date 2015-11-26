@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="184307414b0f44a08240821ef1724b76" Name="Diagram1" ZoomLevel="73" >
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.Aluno" Width="1.5" PointX="17.25" PointY="10.25" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.CalendarioHorario" Width="1.5" PointX="4.875" PointY="9.75" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.Disciplina" Width="1.5" PointX="11.125" PointY="7.5" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.HorarioRecursoComputacional" Width="1.5" PointX="8.375" PointY="1.75" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.HorarioRecursoSolicitado" Width="1.5" PointX="5" PointY="5.125" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.Professor" Width="1.5" PointX="15.375" PointY="11.25" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.ProfessorDisciplina" Width="1.5" PointX="11.625" PointY="11.125" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.RecursoComputacional" Width="1.5" PointX="7.875" PointY="7.375" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.RecursosAlocados" Width="1.5" PointX="5.125" PointY="2.375" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.RecursoSolicitado" Width="1.5" PointX="8.125" PointY="4.125" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.Sala" Width="1.5" PointX="8" PointY="10.75" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.Turma" Width="1.5" PointX="15.875" PointY="4.375" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.TurmaAluno" Width="1.5" PointX="17.125" PointY="7.375" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.TurmaProfessor" Width="1.5" PointX="13.875" PointY="7" />
+        <EntityTypeShape EntityType="DesenvolvimentoLocalModel.TurmaProfessorDisciplina" Width="1.5" PointX="13" PointY="3.75" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_TurmaAluno_Aluno" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_HorarioRecSolic_CalenHor" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Disc" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_TurmaProfDisc_Disc" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_HorarioRecSolic_RecSolic" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_RecAloc_HorRecSolic" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Prof" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_TurmaProfessor_Prof" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_RecSolic_RecursoComp" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_RecursoComp_Sala" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_RecSolic_TurmaProfDisc" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_TurmaAluno_Turma" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_TurmaProfessor_Turma" />
+        <AssociationConnector Association="DesenvolvimentoLocalModel.FK_TurmaProfDisc_TurmaProf" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

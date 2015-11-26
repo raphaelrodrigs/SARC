@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DesenvolvimentoLocalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DesenvolvimentoLocalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aluno" EntityType="DesenvolvimentoLocalModel.Aluno" />
+    <EntitySet Name="CalendarioHorario" EntityType="DesenvolvimentoLocalModel.CalendarioHorario" />
+    <EntitySet Name="Disciplina" EntityType="DesenvolvimentoLocalModel.Disciplina" />
+    <EntitySet Name="HorarioRecursoComputacional" EntityType="DesenvolvimentoLocalModel.HorarioRecursoComputacional" />
+    <EntitySet Name="HorarioRecursoSolicitado" EntityType="DesenvolvimentoLocalModel.HorarioRecursoSolicitado" />
+    <EntitySet Name="Professor" EntityType="DesenvolvimentoLocalModel.Professor" />
+    <EntitySet Name="ProfessorDisciplina" EntityType="DesenvolvimentoLocalModel.ProfessorDisciplina" />
+    <EntitySet Name="RecursoComputacional" EntityType="DesenvolvimentoLocalModel.RecursoComputacional" />
+    <EntitySet Name="RecursosAlocados" EntityType="DesenvolvimentoLocalModel.RecursosAlocados" />
+    <EntitySet Name="RecursoSolicitado" EntityType="DesenvolvimentoLocalModel.RecursoSolicitado" />
+    <EntitySet Name="Sala" EntityType="DesenvolvimentoLocalModel.Sala" />
+    <EntitySet Name="Turma" EntityType="DesenvolvimentoLocalModel.Turma" />
+    <EntitySet Name="TurmaAluno" EntityType="DesenvolvimentoLocalModel.TurmaAluno" />
+    <EntitySet Name="TurmaProfessor" EntityType="DesenvolvimentoLocalModel.TurmaProfessor" />
+    <EntitySet Name="TurmaProfessorDisciplina" EntityType="DesenvolvimentoLocalModel.TurmaProfessorDisciplina" />
+    <AssociationSet Name="FK_TurmaAluno_Aluno" Association="DesenvolvimentoLocalModel.FK_TurmaAluno_Aluno">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="TurmaAluno" EntitySet="TurmaAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HorarioRecSolic_CalenHor" Association="DesenvolvimentoLocalModel.FK_HorarioRecSolic_CalenHor">
+      <End Role="CalendarioHorario" EntitySet="CalendarioHorario" />
+      <End Role="HorarioRecursoSolicitado" EntitySet="HorarioRecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfessorDisciplina_Disc" Association="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Disc">
+      <End Role="Disciplina" EntitySet="Disciplina" />
+      <End Role="ProfessorDisciplina" EntitySet="ProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfDisc_Disc" Association="DesenvolvimentoLocalModel.FK_TurmaProfDisc_Disc">
+      <End Role="Disciplina" EntitySet="Disciplina" />
+      <End Role="TurmaProfessorDisciplina" EntitySet="TurmaProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HorarioRecSolic_RecSolic" Association="DesenvolvimentoLocalModel.FK_HorarioRecSolic_RecSolic">
+      <End Role="RecursoSolicitado" EntitySet="RecursoSolicitado" />
+      <End Role="HorarioRecursoSolicitado" EntitySet="HorarioRecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecAloc_HorRecSolic" Association="DesenvolvimentoLocalModel.FK_RecAloc_HorRecSolic">
+      <End Role="HorarioRecursoSolicitado" EntitySet="HorarioRecursoSolicitado" />
+      <End Role="RecursosAlocados" EntitySet="RecursosAlocados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfessorDisciplina_Prof" Association="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Prof">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="ProfessorDisciplina" EntitySet="ProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfessor_Prof" Association="DesenvolvimentoLocalModel.FK_TurmaProfessor_Prof">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="TurmaProfessor" EntitySet="TurmaProfessor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecSolic_RecursoComp" Association="DesenvolvimentoLocalModel.FK_RecSolic_RecursoComp">
+      <End Role="RecursoComputacional" EntitySet="RecursoComputacional" />
+      <End Role="RecursoSolicitado" EntitySet="RecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecursoComp_Sala" Association="DesenvolvimentoLocalModel.FK_RecursoComp_Sala">
+      <End Role="Sala" EntitySet="Sala" />
+      <End Role="RecursoComputacional" EntitySet="RecursoComputacional" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecSolic_TurmaProfDisc" Association="DesenvolvimentoLocalModel.FK_RecSolic_TurmaProfDisc">
+      <End Role="TurmaProfessorDisciplina" EntitySet="TurmaProfessorDisciplina" />
+      <End Role="RecursoSolicitado" EntitySet="RecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaAluno_Turma" Association="DesenvolvimentoLocalModel.FK_TurmaAluno_Turma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="TurmaAluno" EntitySet="TurmaAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfessor_Turma" Association="DesenvolvimentoLocalModel.FK_TurmaProfessor_Turma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="TurmaProfessor" EntitySet="TurmaProfessor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfDisc_TurmaProf" Association="DesenvolvimentoLocalModel.FK_TurmaProfDisc_TurmaProf">
+      <End Role="TurmaProfessor" EntitySet="TurmaProfessor" />
+      <End Role="TurmaProfessorDisciplina" EntitySet="TurmaProfessorDisciplina" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="Matricula" Type="Int32" />
+    <Property Name="DataNascimento" Type="DateTime" Precision="0" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TurmaAluno" Relationship="DesenvolvimentoLocalModel.FK_TurmaAluno_Aluno" FromRole="Aluno" ToRole="TurmaAluno" />
+  </EntityType>
+  <EntityType Name="CalendarioHorario">
+    <Key>
+      <PropertyRef Name="IdCalendarioHorario" />
+    </Key>
+    <Property Name="IdCalendarioHorario" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="InicioHorario" Type="DateTime" Precision="0" />
+    <Property Name="FimHorario" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="HorarioRecursoSolicitado" Relationship="DesenvolvimentoLocalModel.FK_HorarioRecSolic_CalenHor" FromRole="CalendarioHorario" ToRole="HorarioRecursoSolicitado" />
+  </EntityType>
+  <EntityType Name="Disciplina">
+    <Key>
+      <PropertyRef Name="IdDisciplina" />
+    </Key>
+    <Property Name="IdDisciplina" Type="Int32" Nullable="false" />
+    <Property Name="NomeDisciplina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Semestre" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ProfessorDisciplina" Relationship="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Disc" FromRole="Disciplina" ToRole="ProfessorDisciplina" />
+    <NavigationProperty Name="TurmaProfessorDisciplina" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfDisc_Disc" FromRole="Disciplina" ToRole="TurmaProfessorDisciplina" />
+  </EntityType>
+  <EntityType Name="HorarioRecursoComputacional">
+    <Key>
+      <PropertyRef Name="IdHorarioRecursoComputacional" />
+      <PropertyRef Name="IdHorario" />
+    </Key>
+    <Property Name="IdHorarioRecursoComputacional" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IdHorario" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IdRecursoComputacionalFK" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HorarioRecursoSolicitado">
+    <Key>
+      <PropertyRef Name="IdHorarioRecursoSolicitado" />
+    </Key>
+    <Property Name="IdHorarioRecursoSolicitado" Type="Int32" Nullable="false" />
+    <Property Name="IdCalendarioHorario" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IdRecursoSolicitado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CalendarioHorario" Relationship="DesenvolvimentoLocalModel.FK_HorarioRecSolic_CalenHor" FromRole="HorarioRecursoSolicitado" ToRole="CalendarioHorario" />
+    <NavigationProperty Name="RecursoSolicitado" Relationship="DesenvolvimentoLocalModel.FK_HorarioRecSolic_RecSolic" FromRole="HorarioRecursoSolicitado" ToRole="RecursoSolicitado" />
+    <NavigationProperty Name="RecursosAlocados" Relationship="DesenvolvimentoLocalModel.FK_RecAloc_HorRecSolic" FromRole="HorarioRecursoSolicitado" ToRole="RecursosAlocados" />
+  </EntityType>
+  <EntityType Name="Professor">
+    <Key>
+      <PropertyRef Name="IdProfessor" />
+    </Key>
+    <Property Name="IdProfessor" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="DateTime" Precision="0" />
+    <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="RG" Type="Int32" />
+    <NavigationProperty Name="ProfessorDisciplina" Relationship="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Prof" FromRole="Professor" ToRole="ProfessorDisciplina" />
+    <NavigationProperty Name="TurmaProfessor" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfessor_Prof" FromRole="Professor" ToRole="TurmaProfessor" />
+  </EntityType>
+  <EntityType Name="ProfessorDisciplina">
+    <Key>
+      <PropertyRef Name="IdProfessorDisciplina" />
+    </Key>
+    <Property Name="IdProfessorDisciplina" Type="Int32" Nullable="false" />
+    <Property Name="IdProfessor" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IdDisciplina" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Disciplina" Relationship="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Disc" FromRole="ProfessorDisciplina" ToRole="Disciplina" />
+    <NavigationProperty Name="Professor" Relationship="DesenvolvimentoLocalModel.FK_ProfessorDisciplina_Prof" FromRole="ProfessorDisciplina" ToRole="Professor" />
+  </EntityType>
+  <EntityType Name="RecursoComputacional">
+    <Key>
+      <PropertyRef Name="IdRecursoComputacional" />
+    </Key>
+    <Property Name="IdRecursoComputacional" Type="Int32" Nullable="false" />
+    <Property Name="IdSala" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RecursoSolicitado" Relationship="DesenvolvimentoLocalModel.FK_RecSolic_RecursoComp" FromRole="RecursoComputacional" ToRole="RecursoSolicitado" />
+    <NavigationProperty Name="Sala" Relationship="DesenvolvimentoLocalModel.FK_RecursoComp_Sala" FromRole="RecursoComputacional" ToRole="Sala" />
+  </EntityType>
+  <EntityType Name="RecursosAlocados">
+    <Key>
+      <PropertyRef Name="IdRecursoAlocado" />
+    </Key>
+    <Property Name="IdRecursoAlocado" Type="Int32" Nullable="false" />
+    <Property Name="IdHorarioRecursoSolicitado" Type="Int32" Nullable="false" />
+    <Property Name="IdTurmaProfessorDisciplina" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HorarioRecursoSolicitado" Relationship="DesenvolvimentoLocalModel.FK_RecAloc_HorRecSolic" FromRole="RecursosAlocados" ToRole="HorarioRecursoSolicitado" />
+  </EntityType>
+  <EntityType Name="RecursoSolicitado">
+    <Key>
+      <PropertyRef Name="IdRecursoSolicitado" />
+    </Key>
+    <Property Name="IdRecursoSolicitado" Type="Int32" Nullable="false" />
+    <Property Name="IdRecursoComputacional" Type="Int32" Nullable="false" />
+    <Property Name="IdTurmaProfessorDisciplina" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HorarioRecursoSolicitado" Relationship="DesenvolvimentoLocalModel.FK_HorarioRecSolic_RecSolic" FromRole="RecursoSolicitado" ToRole="HorarioRecursoSolicitado" />
+    <NavigationProperty Name="RecursoComputacional" Relationship="DesenvolvimentoLocalModel.FK_RecSolic_RecursoComp" FromRole="RecursoSolicitado" ToRole="RecursoComputacional" />
+    <NavigationProperty Name="TurmaProfessorDisciplina" Relationship="DesenvolvimentoLocalModel.FK_RecSolic_TurmaProfDisc" FromRole="RecursoSolicitado" ToRole="TurmaProfessorDisciplina" />
+  </EntityType>
+  <EntityType Name="Sala">
+    <Key>
+      <PropertyRef Name="IdSala" />
+    </Key>
+    <Property Name="IdSala" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Numero" Type="Int32" />
+    <Property Name="QuantVagas" Type="Int32" />
+    <NavigationProperty Name="RecursoComputacional" Relationship="DesenvolvimentoLocalModel.FK_RecursoComp_Sala" FromRole="Sala" ToRole="RecursoComputacional" />
+  </EntityType>
+  <EntityType Name="Turma">
+    <Key>
+      <PropertyRef Name="IdTurma" />
+    </Key>
+    <Property Name="IdTurma" Type="Int32" Nullable="false" />
+    <Property Name="Numero" Type="Int32" />
+    <NavigationProperty Name="TurmaAluno" Relationship="DesenvolvimentoLocalModel.FK_TurmaAluno_Turma" FromRole="Turma" ToRole="TurmaAluno" />
+    <NavigationProperty Name="TurmaProfessor" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfessor_Turma" FromRole="Turma" ToRole="TurmaProfessor" />
+  </EntityType>
+  <EntityType Name="TurmaAluno">
+    <Key>
+      <PropertyRef Name="IdTurmaAluno" />
+    </Key>
+    <Property Name="IdTurmaAluno" Type="Int32" Nullable="false" />
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="IdTurma" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Aluno" Relationship="DesenvolvimentoLocalModel.FK_TurmaAluno_Aluno" FromRole="TurmaAluno" ToRole="Aluno" />
+    <NavigationProperty Name="Turma" Relationship="DesenvolvimentoLocalModel.FK_TurmaAluno_Turma" FromRole="TurmaAluno" ToRole="Turma" />
+  </EntityType>
+  <EntityType Name="TurmaProfessor">
+    <Key>
+      <PropertyRef Name="IdTurmaProfessor" />
+    </Key>
+    <Property Name="IdTurmaProfessor" Type="Int32" Nullable="false" />
+    <Property Name="IdTurma" Type="Int32" Nullable="false" />
+    <Property Name="IdProfessor" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Professor" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfessor_Prof" FromRole="TurmaProfessor" ToRole="Professor" />
+    <NavigationProperty Name="Turma" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfessor_Turma" FromRole="TurmaProfessor" ToRole="Turma" />
+    <NavigationProperty Name="TurmaProfessorDisciplina" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfDisc_TurmaProf" FromRole="TurmaProfessor" ToRole="TurmaProfessorDisciplina" />
+  </EntityType>
+  <EntityType Name="TurmaProfessorDisciplina">
+    <Key>
+      <PropertyRef Name="IdTurmaProfessorDisciplina" />
+    </Key>
+    <Property Name="IdTurmaProfessorDisciplina" Type="Int32" Nullable="false" />
+    <Property Name="IdDisciplina" Type="Int32" Nullable="false" />
+    <Property Name="IdTurmaProfessor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Disciplina" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfDisc_Disc" FromRole="TurmaProfessorDisciplina" ToRole="Disciplina" />
+    <NavigationProperty Name="RecursoSolicitado" Relationship="DesenvolvimentoLocalModel.FK_RecSolic_TurmaProfDisc" FromRole="TurmaProfessorDisciplina" ToRole="RecursoSolicitado" />
+    <NavigationProperty Name="TurmaProfessor" Relationship="DesenvolvimentoLocalModel.FK_TurmaProfDisc_TurmaProf" FromRole="TurmaProfessorDisciplina" ToRole="TurmaProfessor" />
+  </EntityType>
+  <Association Name="FK_TurmaAluno_Aluno">
+    <End Type="DesenvolvimentoLocalModel.Aluno" Role="Aluno" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.TurmaAluno" Role="TurmaAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IdAluno" />
+      </Principal>
+      <Dependent Role="TurmaAluno">
+        <PropertyRef Name="IdAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HorarioRecSolic_CalenHor">
+    <End Type="DesenvolvimentoLocalModel.CalendarioHorario" Role="CalendarioHorario" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.HorarioRecursoSolicitado" Role="HorarioRecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CalendarioHorario">
+        <PropertyRef Name="IdCalendarioHorario" />
+      </Principal>
+      <Dependent Role="HorarioRecursoSolicitado">
+        <PropertyRef Name="IdCalendarioHorario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfessorDisciplina_Disc">
+    <End Type="DesenvolvimentoLocalModel.Disciplina" Role="Disciplina" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.ProfessorDisciplina" Role="ProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Principal>
+      <Dependent Role="ProfessorDisciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfDisc_Disc">
+    <End Type="DesenvolvimentoLocalModel.Disciplina" Role="Disciplina" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.TurmaProfessorDisciplina" Role="TurmaProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Principal>
+      <Dependent Role="TurmaProfessorDisciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HorarioRecSolic_RecSolic">
+    <End Type="DesenvolvimentoLocalModel.RecursoSolicitado" Role="RecursoSolicitado" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.HorarioRecursoSolicitado" Role="HorarioRecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecursoSolicitado">
+        <PropertyRef Name="IdRecursoSolicitado" />
+      </Principal>
+      <Dependent Role="HorarioRecursoSolicitado">
+        <PropertyRef Name="IdRecursoSolicitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecAloc_HorRecSolic">
+    <End Type="DesenvolvimentoLocalModel.HorarioRecursoSolicitado" Role="HorarioRecursoSolicitado" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.RecursosAlocados" Role="RecursosAlocados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HorarioRecursoSolicitado">
+        <PropertyRef Name="IdHorarioRecursoSolicitado" />
+      </Principal>
+      <Dependent Role="RecursosAlocados">
+        <PropertyRef Name="IdHorarioRecursoSolicitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfessorDisciplina_Prof">
+    <End Type="DesenvolvimentoLocalModel.Professor" Role="Professor" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.ProfessorDisciplina" Role="ProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IdProfessor" />
+      </Principal>
+      <Dependent Role="ProfessorDisciplina">
+        <PropertyRef Name="IdProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfessor_Prof">
+    <End Type="DesenvolvimentoLocalModel.Professor" Role="Professor" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.TurmaProfessor" Role="TurmaProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IdProfessor" />
+      </Principal>
+      <Dependent Role="TurmaProfessor">
+        <PropertyRef Name="IdProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecSolic_RecursoComp">
+    <End Type="DesenvolvimentoLocalModel.RecursoComputacional" Role="RecursoComputacional" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.RecursoSolicitado" Role="RecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecursoComputacional">
+        <PropertyRef Name="IdRecursoComputacional" />
+      </Principal>
+      <Dependent Role="RecursoSolicitado">
+        <PropertyRef Name="IdRecursoComputacional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecursoComp_Sala">
+    <End Type="DesenvolvimentoLocalModel.Sala" Role="Sala" Multiplicity="0..1" />
+    <End Type="DesenvolvimentoLocalModel.RecursoComputacional" Role="RecursoComputacional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="IdSala" />
+      </Principal>
+      <Dependent Role="RecursoComputacional">
+        <PropertyRef Name="IdSala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecSolic_TurmaProfDisc">
+    <End Type="DesenvolvimentoLocalModel.TurmaProfessorDisciplina" Role="TurmaProfessorDisciplina" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.RecursoSolicitado" Role="RecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TurmaProfessorDisciplina">
+        <PropertyRef Name="IdTurmaProfessorDisciplina" />
+      </Principal>
+      <Dependent Role="RecursoSolicitado">
+        <PropertyRef Name="IdTurmaProfessorDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaAluno_Turma">
+    <End Type="DesenvolvimentoLocalModel.Turma" Role="Turma" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.TurmaAluno" Role="TurmaAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="IdTurma" />
+      </Principal>
+      <Dependent Role="TurmaAluno">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfessor_Turma">
+    <End Type="DesenvolvimentoLocalModel.Turma" Role="Turma" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.TurmaProfessor" Role="TurmaProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="IdTurma" />
+      </Principal>
+      <Dependent Role="TurmaProfessor">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfDisc_TurmaProf">
+    <End Type="DesenvolvimentoLocalModel.TurmaProfessor" Role="TurmaProfessor" Multiplicity="1" />
+    <End Type="DesenvolvimentoLocalModel.TurmaProfessorDisciplina" Role="TurmaProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TurmaProfessor">
+        <PropertyRef Name="IdTurmaProfessor" />
+      </Principal>
+      <Dependent Role="TurmaProfessorDisciplina">
+        <PropertyRef Name="IdTurmaProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

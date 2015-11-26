@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DesenvolvimentoLocalModelStoreContainer" CdmEntityContainer="DesenvolvimentoLocalEntities">
+    <EntitySetMapping Name="Aluno">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.Aluno">
+        <MappingFragment StoreEntitySet="Aluno">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CalendarioHorario">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.CalendarioHorario">
+        <MappingFragment StoreEntitySet="CalendarioHorario">
+          <ScalarProperty Name="FimHorario" ColumnName="FimHorario" />
+          <ScalarProperty Name="InicioHorario" ColumnName="InicioHorario" />
+          <ScalarProperty Name="IdCalendarioHorario" ColumnName="IdCalendarioHorario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disciplina">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.Disciplina">
+        <MappingFragment StoreEntitySet="Disciplina">
+          <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+          <ScalarProperty Name="NomeDisciplina" ColumnName="NomeDisciplina" />
+          <ScalarProperty Name="IdDisciplina" ColumnName="IdDisciplina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HorarioRecursoComputacional">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.HorarioRecursoComputacional">
+        <MappingFragment StoreEntitySet="HorarioRecursoComputacional">
+          <ScalarProperty Name="IdRecursoComputacionalFK" ColumnName="IdRecursoComputacionalFK" />
+          <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+          <ScalarProperty Name="IdHorarioRecursoComputacional" ColumnName="IdHorarioRecursoComputacional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HorarioRecursoSolicitado">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.HorarioRecursoSolicitado">
+        <MappingFragment StoreEntitySet="HorarioRecursoSolicitado">
+          <ScalarProperty Name="IdRecursoSolicitado" ColumnName="IdRecursoSolicitado" />
+          <ScalarProperty Name="IdCalendarioHorario" ColumnName="IdCalendarioHorario" />
+          <ScalarProperty Name="IdHorarioRecursoSolicitado" ColumnName="IdHorarioRecursoSolicitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professor">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.Professor">
+        <MappingFragment StoreEntitySet="Professor">
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfessorDisciplina">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.ProfessorDisciplina">
+        <MappingFragment StoreEntitySet="ProfessorDisciplina">
+          <ScalarProperty Name="IdDisciplina" ColumnName="IdDisciplina" />
+          <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+          <ScalarProperty Name="IdProfessorDisciplina" ColumnName="IdProfessorDisciplina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursoComputacional">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.RecursoComputacional">
+        <MappingFragment StoreEntitySet="RecursoComputacional">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IdSala" ColumnName="IdSala" />
+          <ScalarProperty Name="IdRecursoComputacional" ColumnName="IdRecursoComputacional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursosAlocados">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.RecursosAlocados">
+        <MappingFragment StoreEntitySet="RecursosAlocados">
+          <ScalarProperty Name="IdTurmaProfessorDisciplina" ColumnName="IdTurmaProfessorDisciplina" />
+          <ScalarProperty Name="IdHorarioRecursoSolicitado" ColumnName="IdHorarioRecursoSolicitado" />
+          <ScalarProperty Name="IdRecursoAlocado" ColumnName="IdRecursoAlocado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursoSolicitado">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.RecursoSolicitado">
+        <MappingFragment StoreEntitySet="RecursoSolicitado">
+          <ScalarProperty Name="IdTurmaProfessorDisciplina" ColumnName="IdTurmaProfessorDisciplina" />
+          <ScalarProperty Name="IdRecursoComputacional" ColumnName="IdRecursoComputacional" />
+          <ScalarProperty Name="IdRecursoSolicitado" ColumnName="IdRecursoSolicitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sala">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.Sala">
+        <MappingFragment StoreEntitySet="Sala">
+          <ScalarProperty Name="QuantVagas" ColumnName="QuantVagas" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="IdSala" ColumnName="IdSala" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turma">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.Turma">
+        <MappingFragment StoreEntitySet="Turma">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TurmaAluno">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.TurmaAluno">
+        <MappingFragment StoreEntitySet="TurmaAluno">
+          <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
+          <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+          <ScalarProperty Name="IdTurmaAluno" ColumnName="IdTurmaAluno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TurmaProfessor">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.TurmaProfessor">
+        <MappingFragment StoreEntitySet="TurmaProfessor">
+          <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+          <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
+          <ScalarProperty Name="IdTurmaProfessor" ColumnName="IdTurmaProfessor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TurmaProfessorDisciplina">
+      <EntityTypeMapping TypeName="DesenvolvimentoLocalModel.TurmaProfessorDisciplina">
+        <MappingFragment StoreEntitySet="TurmaProfessorDisciplina">
+          <ScalarProperty Name="IdTurmaProfessor" ColumnName="IdTurmaProfessor" />
+          <ScalarProperty Name="IdDisciplina" ColumnName="IdDisciplina" />
+          <ScalarProperty Name="IdTurmaProfessorDisciplina" ColumnName="IdTurmaProfessorDisciplina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

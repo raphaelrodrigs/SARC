@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DesenvolvimentoLocalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+    </Key>
+    <Property Name="IdAluno" Type="int" Nullable="false" />
+    <Property Name="Matricula" Type="int" />
+    <Property Name="DataNascimento" Type="date" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CalendarioHorario">
+    <Key>
+      <PropertyRef Name="IdCalendarioHorario" />
+    </Key>
+    <Property Name="IdCalendarioHorario" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="InicioHorario" Type="date" />
+    <Property Name="FimHorario" Type="date" />
+  </EntityType>
+  <EntityType Name="Disciplina">
+    <Key>
+      <PropertyRef Name="IdDisciplina" />
+    </Key>
+    <Property Name="IdDisciplina" Type="int" Nullable="false" />
+    <Property Name="NomeDisciplina" Type="varchar" MaxLength="50" />
+    <Property Name="Semestre" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="HorarioRecursoComputacional">
+    <Key>
+      <PropertyRef Name="IdHorarioRecursoComputacional" />
+      <PropertyRef Name="IdHorario" />
+    </Key>
+    <Property Name="IdHorarioRecursoComputacional" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="IdHorario" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="IdRecursoComputacionalFK" Type="int" />
+  </EntityType>
+  <EntityType Name="HorarioRecursoSolicitado">
+    <Key>
+      <PropertyRef Name="IdHorarioRecursoSolicitado" />
+    </Key>
+    <Property Name="IdHorarioRecursoSolicitado" Type="int" Nullable="false" />
+    <Property Name="IdCalendarioHorario" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="IdRecursoSolicitado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Professor">
+    <Key>
+      <PropertyRef Name="IdProfessor" />
+    </Key>
+    <Property Name="IdProfessor" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="30" />
+    <Property Name="DataNascimento" Type="date" />
+    <Property Name="CPF" Type="varchar" MaxLength="11" />
+    <Property Name="RG" Type="int" />
+  </EntityType>
+  <EntityType Name="ProfessorDisciplina">
+    <Key>
+      <PropertyRef Name="IdProfessorDisciplina" />
+    </Key>
+    <Property Name="IdProfessorDisciplina" Type="int" Nullable="false" />
+    <Property Name="IdProfessor" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="IdDisciplina" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecursoComputacional">
+    <Key>
+      <PropertyRef Name="IdRecursoComputacional" />
+    </Key>
+    <Property Name="IdRecursoComputacional" Type="int" Nullable="false" />
+    <Property Name="IdSala" Type="char" MaxLength="10" />
+    <Property Name="Nome" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="RecursosAlocados">
+    <Key>
+      <PropertyRef Name="IdRecursoAlocado" />
+    </Key>
+    <Property Name="IdRecursoAlocado" Type="int" Nullable="false" />
+    <Property Name="IdHorarioRecursoSolicitado" Type="int" Nullable="false" />
+    <Property Name="IdTurmaProfessorDisciplina" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecursoSolicitado">
+    <Key>
+      <PropertyRef Name="IdRecursoSolicitado" />
+    </Key>
+    <Property Name="IdRecursoSolicitado" Type="int" Nullable="false" />
+    <Property Name="IdRecursoComputacional" Type="int" Nullable="false" />
+    <Property Name="IdTurmaProfessorDisciplina" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sala">
+    <Key>
+      <PropertyRef Name="IdSala" />
+    </Key>
+    <Property Name="IdSala" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Numero" Type="int" />
+    <Property Name="QuantVagas" Type="int" />
+  </EntityType>
+  <EntityType Name="Turma">
+    <Key>
+      <PropertyRef Name="IdTurma" />
+    </Key>
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="int" />
+  </EntityType>
+  <EntityType Name="TurmaAluno">
+    <Key>
+      <PropertyRef Name="IdTurmaAluno" />
+    </Key>
+    <Property Name="IdTurmaAluno" Type="int" Nullable="false" />
+    <Property Name="IdAluno" Type="int" Nullable="false" />
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TurmaProfessor">
+    <Key>
+      <PropertyRef Name="IdTurmaProfessor" />
+    </Key>
+    <Property Name="IdTurmaProfessor" Type="int" Nullable="false" />
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="IdProfessor" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TurmaProfessorDisciplina">
+    <Key>
+      <PropertyRef Name="IdTurmaProfessorDisciplina" />
+    </Key>
+    <Property Name="IdTurmaProfessorDisciplina" Type="int" Nullable="false" />
+    <Property Name="IdDisciplina" Type="int" Nullable="false" />
+    <Property Name="IdTurmaProfessor" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_HorarioRecSolic_CalenHor">
+    <End Role="CalendarioHorario" Type="Self.CalendarioHorario" Multiplicity="1" />
+    <End Role="HorarioRecursoSolicitado" Type="Self.HorarioRecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CalendarioHorario">
+        <PropertyRef Name="IdCalendarioHorario" />
+      </Principal>
+      <Dependent Role="HorarioRecursoSolicitado">
+        <PropertyRef Name="IdCalendarioHorario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HorarioRecSolic_RecSolic">
+    <End Role="RecursoSolicitado" Type="Self.RecursoSolicitado" Multiplicity="1" />
+    <End Role="HorarioRecursoSolicitado" Type="Self.HorarioRecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecursoSolicitado">
+        <PropertyRef Name="IdRecursoSolicitado" />
+      </Principal>
+      <Dependent Role="HorarioRecursoSolicitado">
+        <PropertyRef Name="IdRecursoSolicitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfessorDisciplina_Disc">
+    <End Role="Disciplina" Type="Self.Disciplina" Multiplicity="1" />
+    <End Role="ProfessorDisciplina" Type="Self.ProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Principal>
+      <Dependent Role="ProfessorDisciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfessorDisciplina_Prof">
+    <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+    <End Role="ProfessorDisciplina" Type="Self.ProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IdProfessor" />
+      </Principal>
+      <Dependent Role="ProfessorDisciplina">
+        <PropertyRef Name="IdProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecAloc_HorRecSolic">
+    <End Role="HorarioRecursoSolicitado" Type="Self.HorarioRecursoSolicitado" Multiplicity="1" />
+    <End Role="RecursosAlocados" Type="Self.RecursosAlocados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HorarioRecursoSolicitado">
+        <PropertyRef Name="IdHorarioRecursoSolicitado" />
+      </Principal>
+      <Dependent Role="RecursosAlocados">
+        <PropertyRef Name="IdHorarioRecursoSolicitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecSolic_RecursoComp">
+    <End Role="RecursoComputacional" Type="Self.RecursoComputacional" Multiplicity="1" />
+    <End Role="RecursoSolicitado" Type="Self.RecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecursoComputacional">
+        <PropertyRef Name="IdRecursoComputacional" />
+      </Principal>
+      <Dependent Role="RecursoSolicitado">
+        <PropertyRef Name="IdRecursoComputacional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecSolic_TurmaProfDisc">
+    <End Role="TurmaProfessorDisciplina" Type="Self.TurmaProfessorDisciplina" Multiplicity="1" />
+    <End Role="RecursoSolicitado" Type="Self.RecursoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TurmaProfessorDisciplina">
+        <PropertyRef Name="IdTurmaProfessorDisciplina" />
+      </Principal>
+      <Dependent Role="RecursoSolicitado">
+        <PropertyRef Name="IdTurmaProfessorDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecursoComp_Sala">
+    <End Role="Sala" Type="Self.Sala" Multiplicity="0..1" />
+    <End Role="RecursoComputacional" Type="Self.RecursoComputacional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="IdSala" />
+      </Principal>
+      <Dependent Role="RecursoComputacional">
+        <PropertyRef Name="IdSala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaAluno_Aluno">
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="TurmaAluno" Type="Self.TurmaAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IdAluno" />
+      </Principal>
+      <Dependent Role="TurmaAluno">
+        <PropertyRef Name="IdAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaAluno_Turma">
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="TurmaAluno" Type="Self.TurmaAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="IdTurma" />
+      </Principal>
+      <Dependent Role="TurmaAluno">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfDisc_Disc">
+    <End Role="Disciplina" Type="Self.Disciplina" Multiplicity="1" />
+    <End Role="TurmaProfessorDisciplina" Type="Self.TurmaProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Principal>
+      <Dependent Role="TurmaProfessorDisciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfDisc_TurmaProf">
+    <End Role="TurmaProfessor" Type="Self.TurmaProfessor" Multiplicity="1" />
+    <End Role="TurmaProfessorDisciplina" Type="Self.TurmaProfessorDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TurmaProfessor">
+        <PropertyRef Name="IdTurmaProfessor" />
+      </Principal>
+      <Dependent Role="TurmaProfessorDisciplina">
+        <PropertyRef Name="IdTurmaProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfessor_Prof">
+    <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+    <End Role="TurmaProfessor" Type="Self.TurmaProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IdProfessor" />
+      </Principal>
+      <Dependent Role="TurmaProfessor">
+        <PropertyRef Name="IdProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaProfessor_Turma">
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="TurmaProfessor" Type="Self.TurmaProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="IdTurma" />
+      </Principal>
+      <Dependent Role="TurmaProfessor">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DesenvolvimentoLocalModelStoreContainer">
+    <EntitySet Name="Aluno" EntityType="Self.Aluno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CalendarioHorario" EntityType="Self.CalendarioHorario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disciplina" EntityType="Self.Disciplina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HorarioRecursoComputacional" EntityType="Self.HorarioRecursoComputacional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HorarioRecursoSolicitado" EntityType="Self.HorarioRecursoSolicitado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Professor" EntityType="Self.Professor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfessorDisciplina" EntityType="Self.ProfessorDisciplina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecursoComputacional" EntityType="Self.RecursoComputacional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecursosAlocados" EntityType="Self.RecursosAlocados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecursoSolicitado" EntityType="Self.RecursoSolicitado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sala" EntityType="Self.Sala" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turma" EntityType="Self.Turma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TurmaAluno" EntityType="Self.TurmaAluno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TurmaProfessor" EntityType="Self.TurmaProfessor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TurmaProfessorDisciplina" EntityType="Self.TurmaProfessorDisciplina" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_HorarioRecSolic_CalenHor" Association="Self.FK_HorarioRecSolic_CalenHor">
+      <End Role="CalendarioHorario" EntitySet="CalendarioHorario" />
+      <End Role="HorarioRecursoSolicitado" EntitySet="HorarioRecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HorarioRecSolic_RecSolic" Association="Self.FK_HorarioRecSolic_RecSolic">
+      <End Role="RecursoSolicitado" EntitySet="RecursoSolicitado" />
+      <End Role="HorarioRecursoSolicitado" EntitySet="HorarioRecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfessorDisciplina_Disc" Association="Self.FK_ProfessorDisciplina_Disc">
+      <End Role="Disciplina" EntitySet="Disciplina" />
+      <End Role="ProfessorDisciplina" EntitySet="ProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfessorDisciplina_Prof" Association="Self.FK_ProfessorDisciplina_Prof">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="ProfessorDisciplina" EntitySet="ProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecAloc_HorRecSolic" Association="Self.FK_RecAloc_HorRecSolic">
+      <End Role="HorarioRecursoSolicitado" EntitySet="HorarioRecursoSolicitado" />
+      <End Role="RecursosAlocados" EntitySet="RecursosAlocados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecSolic_RecursoComp" Association="Self.FK_RecSolic_RecursoComp">
+      <End Role="RecursoComputacional" EntitySet="RecursoComputacional" />
+      <End Role="RecursoSolicitado" EntitySet="RecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecSolic_TurmaProfDisc" Association="Self.FK_RecSolic_TurmaProfDisc">
+      <End Role="TurmaProfessorDisciplina" EntitySet="TurmaProfessorDisciplina" />
+      <End Role="RecursoSolicitado" EntitySet="RecursoSolicitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecursoComp_Sala" Association="Self.FK_RecursoComp_Sala">
+      <End Role="Sala" EntitySet="Sala" />
+      <End Role="RecursoComputacional" EntitySet="RecursoComputacional" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaAluno_Aluno" Association="Self.FK_TurmaAluno_Aluno">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="TurmaAluno" EntitySet="TurmaAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaAluno_Turma" Association="Self.FK_TurmaAluno_Turma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="TurmaAluno" EntitySet="TurmaAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfDisc_Disc" Association="Self.FK_TurmaProfDisc_Disc">
+      <End Role="Disciplina" EntitySet="Disciplina" />
+      <End Role="TurmaProfessorDisciplina" EntitySet="TurmaProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfDisc_TurmaProf" Association="Self.FK_TurmaProfDisc_TurmaProf">
+      <End Role="TurmaProfessor" EntitySet="TurmaProfessor" />
+      <End Role="TurmaProfessorDisciplina" EntitySet="TurmaProfessorDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfessor_Prof" Association="Self.FK_TurmaProfessor_Prof">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="TurmaProfessor" EntitySet="TurmaProfessor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaProfessor_Turma" Association="Self.FK_TurmaProfessor_Turma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="TurmaProfessor" EntitySet="TurmaProfessor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

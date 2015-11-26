@@ -1,0 +1,9 @@
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\Repositorio.dll.config
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\Repositorio.dll
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\Repositorio.pdb
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\EntityFramework.dll
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\EntityFramework.xml
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\obj\Debug\Repositorio.dll
+C:\Users\tialles\Documents\Visual Studio 2013\Projects\SARC\Repositorio\obj\Debug\Repositorio.pdb
